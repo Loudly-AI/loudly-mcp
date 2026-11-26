@@ -16,6 +16,7 @@
   <img alt="Transport" src="https://img.shields.io/badge/transport-Streamable%20HTTP-blue">
   <img alt="Auth" src="https://img.shields.io/badge/auth-OAuth%20with%20PKCE-blue">
   <a href="https://www.loudly.com/mcp/docs"><img alt="Docs" src="https://img.shields.io/badge/docs-loudly.com%2Fmcp%2Fdocs-lightgrey"></a>
+  <a href="https://glama.ai/mcp/connectors/io.github.Loudly-AI/loudly"><img alt="Loudly MCP connector: tool definition quality and endpoint health on Glama" src="https://glama.ai/mcp/connectors/io.github.Loudly-AI/loudly/badges/score.svg"></a>
 </p>
 
 <p align="center">
