@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://www.loudly.com">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Loudly-AI/loudly-mcp/main/assets/loudly-logo-white.png">
-      <img alt="Loudly" src="https://raw.githubusercontent.com/Loudly-AI/loudly-mcp/main/assets/loudly-logo-black.png" width="220">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/loudly-logo-white.png">
+      <img alt="Loudly" src="assets/loudly-logo-black.png" width="220">
     </picture>
   </a>
 </p>
@@ -249,3 +249,9 @@ This server is listed in the official MCP Registry as `io.github.Loudly-AI/loudl
 ## Assets
 
 Logo files for client galleries and directories are in [`assets/`](assets/): `loudly-logo-black.png` (800×300, for light backgrounds), `loudly-logo-white.png` (2000×750, for dark backgrounds) and `loudly-icon-192.png` (square icon, the one used in the registry listing).
+
+## License
+
+The contents of this repository, the README, `server.json` and the files under `assets/`, are released under the [MIT License](LICENSE). Copyright (c) 2026 Loudly GmbH.
+
+The Loudly name and logos are trademarks of Loudly GmbH. The license above does not grant permission to use them except to identify the Loudly MCP server, for example in a client's server gallery. The Loudly MCP server itself, the music it produces and your account are governed by Loudly's [terms and conditions](https://www.loudly.com/terms-and-conditions) and [license agreement](https://www.loudly.com/license-agreement).
