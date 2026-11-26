@@ -9,7 +9,7 @@
 
 <h1 align="center">Loudly MCP server</h1>
 
-<p align="center">Make, edit and master music with Loudly right from your AI assistant.</p>
+<p align="center">Make, edit, and master music with Loudly right from your AI assistant.</p>
 
 <p align="center">
   <a href="https://registry.modelcontextprotocol.io/?q=loudly"><img alt="MCP Registry" src="https://img.shields.io/badge/MCP%20Registry-io.github.Loudly--AI%2Floudly-2ea44f"></a>
@@ -28,9 +28,9 @@
 
 The Loudly MCP server lives at **https://mcp.loudly.com**. Connect it to an assistant and ask in plain words: "write a lo-fi track with soft female vocals", "split this song into stems", "master it like a modern pop record". The assistant picks the right Loudly tools, runs them, and hands you the files.
 
-Loudly does the music work on its own servers: generation, stem separation, mixing, mastering and audio editing. The assistant turns your request into tool calls and keeps track of the results. The same tools power the [Loudly AI Music Agent](https://www.loudly.com/ai-music-agent), Loudly's own chat, if you would rather not set up a client.
+Loudly does the music work on its own servers: generation, stem separation, mixing, mastering, and audio editing. The assistant turns your request into tool calls and keeps track of the results. The same tools power the [Loudly AI Music Agent](https://www.loudly.com/ai-music-agent), Loudly's own chat, if you would rather not set up a client.
 
-You need a Loudly subscription. Every tool call that does real work spends credits from the monthly allowance included in your plan, and you can buy top ups when you run low. You manage both in the Loudly Webapp.
+You need a Loudly account, and a free one is enough to start: it comes with a capped credit allowance so you can try the tools for non-commercial use. Every tool call that does real work spends credits. Personal and Pro plans include a monthly allowance that refreshes every month, a commercial license, and the option to buy add-on credits when you run low; see the [pricing page](https://www.loudly.com/music/pricing) for the current numbers. You manage your plan and credits in the Loudly Webapp.
 
 ## Add it to an assistant
 
@@ -53,7 +53,7 @@ On Team and Enterprise plans, an owner adds the connector first in Organization 
 4. Choose **OAuth**, confirm the warning, click **Create as a plugin** and sign in with Loudly.
 5. Install the plugin. In a chat, type `@` and select Loudly.
 
-Works on ChatGPT web with a Business, Enterprise or Edu workspace, where an admin may need to add it. Pro accounts can connect it with read only access.
+Works on ChatGPT web with a Business, Enterprise or Edu workspace, where an admin may need to add it. Pro accounts can connect it with read-only access.
 
 ### Claude Code
 
@@ -77,7 +77,7 @@ Add this to `.cursor/mcp.json`, or to `~/.cursor/mcp.json` for all projects:
 
 ### VS Code
 
-Run **MCP: Add Server** from the command palette, choose **HTTP** and paste `https://mcp.loudly.com`. Or add this to `.mcp.json` in your workspace root:
+Run **MCP: Add Server** from the command palette, choose **HTTP**, and paste `https://mcp.loudly.com`. Or add this to `.mcp.json` in your workspace root:
 
 ```json
 {
@@ -93,7 +93,7 @@ Any client that supports remote MCP servers with OAuth works. Add `https://mcp.l
 
 ## What it can do
 
-Ask for what you want to hear or change. The assistant chains the tools for you: upload a song, separate its stems, remix them, master the result and export a WAV, all in one conversation.
+Ask for what you want to hear or change. The assistant chains the tools for you: upload a song, separate its stems, remix them, master the result, and export a WAV, all in one conversation.
 
 | Tool | What it does | Creates |
 | --- | --- | --- |
@@ -118,33 +118,33 @@ Ask for what you want to hear or change. The assistant chains the tools for you:
 | `analyze_song_dna` | Reads mood, key, bpm, instruments, genres and loudness. | nothing |
 | `analyze_song_structure_and_lyrics` | Adds lyrics and a section map to the DNA. Takes minutes. | nothing |
 | `loudness_meter` | Measures integrated loudness (LUFS), loudness range (LU), sample peak and true peak. | nothing |
-| `search_catalog_songs` | Finds Loudly catalog songs by description, by metadata filters or both. | nothing |
+| `search_catalog_songs` | Finds Loudly catalog songs by description, by metadata filters, or both. | nothing |
 | `search_loops` | Finds the 3 Loudly library loops closest to a description. | nothing |
-| `search_mastering_references` | Finds mastering references by prompt, genre and numeric ranges. | nothing |
+| `search_mastering_references` | Finds mastering references by prompt, genre, and numeric ranges. | nothing |
 | `separate_audio_stems` | Splits an audio file into stems keyed by instrument. | audio |
 | `separate_vega_project_stems` | Splits a project into one single instrument project per stem. | project |
 | `run_mixing_workflow` | An AI mixing engineer balances the stems of one song and explains its settings. | audio |
-| `run_mastering_workflow` | Masters a track to a reference, a catalog reference or a genre, then limits it. | audio |
-| `trim_audio` | Cuts audio to a start and end time, with click free micro fades. | audio |
+| `run_mastering_workflow` | Masters a track to a reference, a catalog reference, or a genre, then limits it. | audio |
+| `trim_audio` | Cuts audio to a start and end time, with click-free micro fades. | audio |
 | `stitch_audio_files` | Joins several clips end to end in order. | audio |
 | `combine_audio` | Places several clips on one timeline with start time and gain, and mixes them. | audio |
-| `add_fades` | Adds a fade in, a fade out or both. | audio |
+| `add_fades` | Adds a fade in, a fade out, or both. | audio |
 | `gain_audio` | Raises or lowers the level by a fixed number of dB. | audio |
-| `equalize_audio` | Runs audio through a chain of low pass, high pass, peak and shelf filters. | audio |
+| `equalize_audio` | Runs audio through a chain of low-pass, high-pass, peak and shelf filters. | audio |
 | `compress_audio` | Compresses dynamics above a threshold. | audio |
-| `limit_audio` | Holds peaks under a ceiling with a look ahead limiter. | audio |
+| `limit_audio` | Holds peaks under a ceiling with a lookahead limiter. | audio |
 | `warp_audio` | Time stretches and pitch shifts, each independent of the other. | audio |
 | `reverse_audio` | Plays audio backwards. | audio |
 | `bitcrush_audio` | Lowers bit depth and sample rate for a lo-fi, aliased sound. | audio |
-| `paulstretch_audio` | Stretches audio into an ambient, transient free texture. | audio |
-| `export_audio` | Converts audio to another format, sample rate, bitrate or bit depth for download. | download |
+| `paulstretch_audio` | Stretches audio into an ambient, transient-free texture. | audio |
+| `export_audio` | Converts audio to another format, sample rate, bitrate, or bit depth for download. | download |
 | `bundle_artifacts` | Zips several artifacts into one download, such as stems or a remix pack. | download |
 
 Tools that create something never overwrite their input. Each edit returns a new artifact, so earlier versions stay available in the conversation.
 
 ## Long jobs
 
-Most tools answer within the call. Generation, restyling, stem separation, remix preparation and full song analysis can take longer. These tools wait up to 100 seconds. If the job is still queued or running by then, they return a `job_id` and the assistant collects the result with the matching wait tool:
+Most tools answer within the call. Generation, restyling, stem separation, remix preparation, and full song analysis can take longer. These tools wait up to 100 seconds. If the job is still queued or running by then, they return a `job_id` and the assistant collects the result with the matching wait tool:
 
 | Started by | Collected with |
 | --- | --- |
@@ -177,11 +177,11 @@ There are four ways to bring your own audio in:
 - **From a link:** `ingest_audio_from_url` fetches a URL that serves the audio bytes directly, not a player or share page.
 - **Inline:** `put_artifact` takes a small file as base64, or project XML as text.
 
-To take audio out, ask for a format. `export_audio` returns a download URL in mp3, ogg, aac, m4a, opus, wav, aiff or flac. Bitrate applies to lossy formats, from 32 to 512 kbps. Sample rate can be set from 8000 to 192000 Hz. Bit depth applies to lossless formats: 16, 24 or 32 bit float for wav and aiff, 16 or 24 for flac. Opus supports sample rates of 8000, 12000, 16000, 24000 and 48000 Hz only. For several files at once, `bundle_artifacts` returns one zip.
+To take audio out, ask for a format. `export_audio` returns a download URL in mp3, ogg, aac, m4a, opus, wav, aiff, or flac. Bitrate applies to lossy formats, from 32 to 512 kbps. Sample rate can be set from 8000 to 192000 Hz. Bit depth applies to lossless formats: 16, 24, or 32-bit float for WAV and AIFF, 16 or 24 for FLAC. Opus supports sample rates of 8000, 12000, 16000, 24000 and 48000 Hz only. For several files at once, `bundle_artifacts` returns one zip.
 
 ## Credits
 
-Tool calls are billed in Loudly credits from your subscription. Priced tools report their cost and your balance after each call, and `get_credit_balance` shows what is left at any time. When you run out, the server tells the assistant, and you can buy a top up in the Loudly Webapp. To start or change a plan, go to the Loudly pricing page.
+Tool calls are billed in Loudly credits. A free account starts with a capped allowance that cannot be topped up; Personal and Pro plans refresh their allowance monthly and can buy add-on credits. Priced tools report their cost and your balance after each call, and `get_credit_balance` shows what is left at any time. When you run out, the server tells the assistant: on a free account, it points you to the plans; on a paid plan, to the top-up page in the Loudly Webapp. To start or change a plan, go to the [pricing page](https://www.loudly.com/music/pricing).
 
 ## Skills
 
@@ -196,13 +196,13 @@ The server uses OAuth with your Loudly account. Clients that support MCP sign in
 | Protected resource metadata | https://mcp.loudly.com/.well-known/oauth-protected-resource |
 | Authorization server | https://www.loudly.com |
 | Authorization server metadata | https://www.loudly.com/.well-known/oauth-authorization-server |
-| Where sign in starts | https://www.loudly.com/oauth/v2/authorize |
+| Where sign-in starts | https://www.loudly.com/oauth/v2/authorize |
 | Exchanges a code for tokens | https://www.loudly.com/oauth/v2/token |
 | Registers a new client | https://www.loudly.com/oauth/v2/register |
 
 Sign in uses the authorization code flow with PKCE (S256). Clients register themselves through dynamic client registration and can be public clients with no secret, or send a secret with `client_secret_post`. Refresh tokens are supported, so you stay signed in. The access token goes in the `Authorization: Bearer` header of each request.
 
-There is one scope, `mcp`, which allows using all the tools of the Loudly MCP server with your account and credits.
+There is one scope, `mcp`, which allows you to use all the tools of the Loudly MCP server with your account and credits.
 
 ## Registry
 
@@ -248,10 +248,10 @@ This server is listed in the official MCP Registry as `io.github.Loudly-AI/loudl
 
 ## Assets
 
-Logo files for client galleries and directories are in [`assets/`](assets/): `loudly-logo-black.png` (800×300, for light backgrounds), `loudly-logo-white.png` (2000×750, for dark backgrounds) and `loudly-icon-192.png` (square icon, the one used in the registry listing).
+Logo files for client galleries and directories are in [`assets/`](assets/): `loudly-logo-black.png` (800×300, for light backgrounds), `loudly-logo-white.png` (2000×750, for dark backgrounds), and `loudly-icon-192.png` (square icon, the one used in the registry listing).
 
 ## License
 
-The contents of this repository, the README, `server.json` and the files under `assets/`, are released under the [MIT License](LICENSE). Copyright (c) 2026 Loudly GmbH.
+The contents of this repository, the README, `server.json` and the files under `assets/` are released under the [MIT License](LICENSE). Copyright (c) 2026 Loudly GmbH.
 
-The Loudly name and logos are trademarks of Loudly GmbH. The license above does not grant permission to use them except to identify the Loudly MCP server, for example in a client's server gallery. The Loudly MCP server itself, the music it produces and your account are governed by Loudly's [terms and conditions](https://www.loudly.com/terms-and-conditions) and [license agreement](https://www.loudly.com/license-agreement).
+The Loudly name and logos are trademarks of Loudly GmbH. The license above does not grant permission to use them except to identify the Loudly MCP server, for example in a client's server gallery. The Loudly MCP server itself, the music it produces, and your account are governed by Loudly's [terms and conditions](https://www.loudly.com/terms-and-conditions) and [license agreement](https://www.loudly.com/license-agreement).
