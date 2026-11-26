@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Loudly-AI/loudly",
+  "title": "Loudly",
+  "description": "Generate, remix, restyle, separate, mix and master music with Loudly's AI tools.",
+  "websiteUrl": "https://www.loudly.com",
+  "version": "1.0.0",
+  "icons": [
+    {
+      "src": "https://www.loudly.com/wp-content/uploads/2021/01/cropped-favicon-1-192x192.png",
+      "mimeType": "image/png",
+      "sizes": ["192x192"]
+    }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://mcp.loudly.com/" }
+  ]
+}
+
